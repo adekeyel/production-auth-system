@@ -5,6 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 dotenv.config();
 const userRoutes = require("./routes/userRoutes");
 connectDB();
+const uploadRoutes = require("./routes/uploadRoutes");
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 app.use("/api/users", userRoutes);
+
+app.use("/api/upload", uploadRoutes);
 
 app.get("/", (req, res) => {
   res.send("Authentication API is running...");
